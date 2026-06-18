@@ -83,7 +83,7 @@ export default function GetInTouch() {
               <div>
                 <div className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/30 mb-2">Email Me At</div>
                 <a href="mailto:hello@adent.dev" className="text-2xl md:text-3xl font-bold hover:text-white/50 transition-colors inline-block relative group">
-                  hello@adent.dev
+                  denfasyah@gmail.com
                   <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full" />
                 </a>
               </div>

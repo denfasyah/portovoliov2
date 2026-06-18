@@ -252,7 +252,7 @@ export default function HeroPage() {
             <span className="pointer-events-none absolute top-0 left-0 h-2 w-px bg-white/30" />
             <span className="pointer-events-none absolute bottom-0 right-0 w-2 h-px bg-white/30" />
             <span className="pointer-events-none absolute bottom-0 right-0 h-2 w-px bg-white/30" />
-            Get in Touch
+            Portofolio
             <svg
               className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               viewBox="0 0 12 12"
@@ -278,7 +278,7 @@ export default function HeroPage() {
             <span className="pointer-events-none absolute top-0 left-0 h-2 w-px bg-white/30" />
             <span className="pointer-events-none absolute bottom-0 right-0 w-2 h-px bg-white/30" />
             <span className="pointer-events-none absolute bottom-0 right-0 h-2 w-px bg-white/30" />
-            See Pricing
+            Get in Touch
             <svg
               className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               viewBox="0 0 12 12"

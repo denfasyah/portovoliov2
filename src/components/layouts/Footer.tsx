@@ -97,18 +97,18 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-8">
           <div className="text-[0.8rem] text-white/50 font-mono tracking-tight">
-            hello@adent.dev
+            denfasyah@gmail.com
           </div>
           
           <div className="flex gap-10 text-[0.65rem] uppercase tracking-[0.25em] text-white/40">
-            <a href="#" className="hover:text-white transition-colors">Behance</a>
-            <a href="#" className="hover:text-white transition-colors">X / Twitter</a>
-            <a href="#" className="hover:text-white transition-colors">Dribbble</a>
-            <a href="#" className="hover:text-white transition-colors">GitHub</a>
+            <a href="#" className="hover:text-white transition-colors">Github</a>
+            <a href="#" className="hover:text-white transition-colors">Linkedin</a>
+            <a href="#" className="hover:text-white transition-colors">Whatsapp</a>
+            <a href="#" className="hover:text-white transition-colors">Tiktok</a>
           </div>
 
           <div className="text-[0.65rem] text-white/20 uppercase tracking-[0.1em]">
-            © 2026 Adent Fallah • Built with Next.js
+            © 2026 Adent • Built with Next.js
           </div>
         </div>
       </div>

@@ -48,6 +48,10 @@ export default function ExperiencePage() {
       >
         <span className="text-white/30">EXPE</span>
         <span className="text-white">RIENCE</span>
+         <p className="mt-6 text-[0.9rem] text-white/50 text-normal tracking-widest uppercase max-w-xl mx-auto leading-relaxed">
+            Professional Journey So-far.
+            
+          </p>
       </motion.h1>
 
       {/* Tab Switcher */}

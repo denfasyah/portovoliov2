@@ -648,6 +648,10 @@ export default function Portfolio() {
       >
         <span className="text-white/30">PORT</span>
         <span className="text-white">FOLIO</span>
+          <p className="mt-6 text-[0.9rem] text-white/50 text-normal tracking-widest uppercase max-w-xl mx-auto leading-relaxed">
+            Selected Digital Works.
+            
+          </p>
       </motion.h1>
 
       {/* Tab switcher — centered */}

@@ -20,7 +20,7 @@ export default function About() {
             <span className="text-white/30">ABOUT</span>
             <span className="text-white"> ME</span>
           </h1>
-          <p className="mt-6 text-[0.9rem] text-white/50 tracking-widest uppercase max-w-xl mx-auto leading-relaxed">
+          <p className="mt-6 text-[0.9rem]  text-white/50 tracking-widest uppercase max-w-xl mx-auto leading-relaxed">
             Crafting Digital Excellence
             
           </p>
@@ -41,10 +41,9 @@ export default function About() {
                 Bio
               </span>
               <p className="text-white/70 text-[1.05rem] leading-[1.85] mb-4">
-                I&apos;m a Full Stack Developer based in Indonesia, passionate about
+                I&apos;m a Full Stack Developer, passionate about
                 crafting digital experiences that marry performance with aesthetic
-                precision. Currently a Software Engineering student at Bina Sarana
-                Informatics University — 21 years old and fully committed to the
+                precision. Currently a Software Engineering student at xxxxxx University — 22 years old and fully committed to the
                 craft.
               </p>
               <p className="text-white/50 text-[0.95rem] leading-[1.8]">
@@ -75,9 +74,9 @@ export default function About() {
                     "Design is not just how it looks — it's how it works, how it scales, and how it feels.",
                 },
                 {
-                  label: "Stack",
+                  label: "Frequently Used Technologies",
                   value:
-                    "Next.js · React · Node.js · Laravel · MongoDB · MySQL · Tailwind CSS",
+                    "Next.js · React · Node.js · Express js · MongoDB · MySQL · Tailwind CSS",
                 },
                 {
                   label: "Currently",
