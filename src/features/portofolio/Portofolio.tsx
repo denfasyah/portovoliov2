@@ -637,7 +637,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <section className="bg-black min-h-screen px-6 py-28 md:px-20 overflow-hidden">
+    <section id="portfolio" className="bg-black min-h-screen px-6 py-28 md:px-20 overflow-hidden">
       {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}

@@ -1,60 +1,79 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { motion } from "framer-motion";
 
 const TECH_STACK = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Express",
-  "Laravel",
-  "MongoDB",
-  "MySQL",
-  "Tailwind CSS",
-  "Figma",
-  "Git",
-  "Docker",
+  { name: "React",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "TypeScript",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Node.js",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "Laravel",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
+  { name: "MongoDB",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "MySQL",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "Tailwind CSS",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Figma",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Git",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "Docker",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
 ];
 
-export default function TechMarquee() {
-  const renderPill = (tech: string, index: number, keyPrefix: string) => (
+// Duplicate for seamless loop
+const ROW1 = [...TECH_STACK, ...TECH_STACK, ...TECH_STACK];
+const ROW2 = [...TECH_STACK].reverse().concat([...TECH_STACK].reverse(), [...TECH_STACK].reverse());
+
+function Pill({ tech, keyPrefix, index }: { tech: typeof TECH_STACK[0]; keyPrefix: string; index: number }) {
+  return (
     <div
       key={`${keyPrefix}-${index}`}
-      className="flex items-center gap-3 border border-white/10 bg-black px-6 py-3 rounded-sm hover:border-white/30 transition-colors cursor-default"
+      className="flex-shrink-0 flex items-center gap-2.5 border border-white/10 bg-white/[0.03] px-5 py-2.5 rounded-sm hover:border-white/30 transition-colors cursor-default"
     >
-      <svg viewBox="0 0 24 24" className="w-4 h-4 text-white/50" fill="none" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-      <span className="text-[0.8rem] font-bold tracking-wide text-white/80">
-        {tech}
+      <img
+        src={tech.icon}
+        alt={tech.name}
+        className="w-4 h-4 object-contain"
+        style={{ filter: "brightness(0) invert(1) opacity(0.6)" }}
+      />
+      <span className="text-[0.75rem] font-semibold tracking-wide text-white/60 whitespace-nowrap">
+        {tech.name}
       </span>
     </div>
   );
+}
 
+export default function TechMarquee() {
   return (
-    <div className="relative flex flex-col gap-6 overflow-x-hidden py-10 mt-20">
-      {/* Gradients for smooth fade out at edges */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+    <div className="mt-20 py-2 max-w-5xl mx-auto">
+      {/* Outer clip — hides overflow beyond 5xl */}
+      <div className="relative overflow-hidden">
+        {/* Edge fades */}
+        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
-      {/* Line 1 - Moving Left */}
-      <motion.div
-        className="flex whitespace-nowrap items-center gap-2 px-3"
-        animate={{ x: [0, -1000] }}
-        transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
-      >
-        {[...TECH_STACK, ...TECH_STACK, ...TECH_STACK].map((tech, index) => renderPill(tech, index, 'l1'))}
-      </motion.div>
+        {/* Row 1 — moves left */}
+        <motion.div
+          className="flex items-center gap-3 py-2 px-2"
+          animate={{ x: [0, -1200] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+          style={{ width: "max-content" }}
+        >
+          {ROW1.map((tech, i) => (
+            <Pill key={`r1-${i}`} tech={tech} keyPrefix="r1" index={i} />
+          ))}
+        </motion.div>
 
-      {/* Line 2 - Moving Right */}
-      <motion.div
-        className="flex whitespace-nowrap items-center gap-2 px-3"
-        animate={{ x: [-1000, 0] }}
-        transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
-      >
-        {[...TECH_STACK, ...TECH_STACK, ...TECH_STACK].reverse().map((tech, index) => renderPill(tech, index, 'l2'))}
-      </motion.div>
+        {/* Row 2 — moves right */}
+        <motion.div
+          className="flex items-center gap-3 py-2 px-2 mt-3"
+          animate={{ x: [-1200, 0] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 36 }}
+          style={{ width: "max-content" }}
+        >
+          {ROW2.map((tech, i) => (
+            <Pill key={`r2-${i}`} tech={tech} keyPrefix="r2" index={i} />
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 }

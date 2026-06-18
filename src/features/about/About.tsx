@@ -6,7 +6,7 @@ import TechMarquee from "./TechMarquee";
 
 export default function About() {
   return (
-    <section className="bg-black min-h-screen pt-28 pb-10 overflow-hidden">
+    <section id="about" className="bg-black min-h-screen pt-28 pb-10 overflow-hidden">
       <div className="px-6 md:px-20">
         {/* ── Heading ── */}
         <motion.div

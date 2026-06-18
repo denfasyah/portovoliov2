@@ -150,11 +150,11 @@ export default function HeroPage() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen relative overflow-hidden">
+    <div id="home" className="bg-black min-h-screen relative overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block" />
 
       {/* Hero Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-10">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-10 md:pt-18">
         {/* Active to work badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -183,31 +183,45 @@ export default function HeroPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="flex flex-col items-center justify-center my-2 w-full"
+          className="flex flex-col items-center my-3 w-full"
         >
-          <h1
-            className="font-bold text-white text-[13vw] sm:text-[11vw] md:text-8xl uppercase tracking-tighter"
-            style={{ 
-              fontFamily: "var(--font-mona)", 
-              lineHeight: "0.95",
-              transform: "scaleY(1.3)",
-              display: "inline-block"
-            }}
-          >
-            ADENT FALLAH
-          </h1>
-          <h1
-            className="font-bold text-white text-[13vw] sm:text-[11vw] md:text-8xl uppercase tracking-tighter"
-            style={{ 
-              fontFamily: "var(--font-mona)", 
-              lineHeight: "0.95",
-              transform: "scaleY(1.3)",
-              display: "inline-block",
-              marginTop: "0.15em"
-            }}
-          >
-            AMORISYAH
-          </h1>
+          {/* Mobile: 3 separate stacked words */}
+          <div className="md:hidden flex flex-col items-center">
+            {["ADENT", "FALLAH", "AMORISYAH"].map((word) => (
+              <h1
+                key={word}
+                className="font-bold text-white text-6xl uppercase leading-none tracking-tighter"
+                style={{
+                  fontFamily: "var(--font-mona)",
+                  transform: "scaleY(1.2)",
+                  display: "block",
+                  lineHeight: 1,
+                  marginBottom: "0.05em",
+                }}
+              >
+                {word}
+              </h1>
+            ))}
+          </div>
+
+          {/* Desktop: 2 lines */}
+          <div className="hidden md:flex flex-col text-9xl items-center">
+            {["ADENT FALLAH", "AMORISYAH"].map((line, i) => (
+              <h1
+                key={line}
+                className="font-bold text-white uppercase tracking-tighter"
+                style={{
+                  fontFamily: "var(--font-mona)",
+                  lineHeight: 0.9,
+                  transform: "scaleY(1.25)",
+                  display: "block",
+                  marginTop: i === 1 ? "0.12em" : 0,
+                }}
+              >
+                {line}
+              </h1>
+            ))}
+          </div>
         </motion.div>
 
         {/* Description */}
@@ -215,7 +229,7 @@ export default function HeroPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
-          className="mt-7 max-w-md text-[clamp(0.9rem,1.8vw,1.05rem)] text-white/55 tracking-[0.02em] leading-relaxed"
+          className="mt-7 max-w-md text-sm md:text-md text-white/55 tracking-[0.02em] leading-relaxed"
         >
           Crafting performant, pixel-perfect digital experiences — from backend
           architecture to polished user interfaces.

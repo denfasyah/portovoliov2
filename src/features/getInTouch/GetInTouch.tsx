@@ -44,7 +44,7 @@ export default function GetInTouch() {
   };
 
   return (
-    <section className="bg-black min-h-screen px-6 py-28 md:px-20 text-white flex flex-col items-center justify-center overflow-hidden">
+    <section id="contact" className="bg-black min-h-screen px-6 py-28 md:px-20 text-white flex flex-col items-center justify-center overflow-hidden">
       <div className="max-w-5xl w-full">
         {/* Brutalist Bracket Heading */}
         <motion.div

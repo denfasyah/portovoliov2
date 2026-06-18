@@ -37,7 +37,7 @@ export default function ExperiencePage() {
   const [activeTab, setActiveTab] = useState<Tab>("work");
 
   return (
-    <section className="bg-black min-h-screen px-6 py-28 md:px-20 text-white overflow-hidden">
+    <section id="experience" className="bg-black min-h-screen px-6 py-28 md:px-20 text-white overflow-hidden">
       {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
