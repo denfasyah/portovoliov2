@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+/* globals.css — tambahkan paling atas, sekali saja */
+/* @import url('https://cdn.jsdelivr.net/fontsource/fonts/mona-sans:vf@latest/latin-wght-normal.woff2'); */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -141,3 +143,11 @@
     @apply font-sans;
   }
 }
+
+/* @font-face {
+  font-family: 'Mona Sans';
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/mona-sans:vf@latest/latin-wght-normal.woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+} */
