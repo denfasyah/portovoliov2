@@ -154,7 +154,7 @@ export default function HeroPage() {
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block" />
 
       {/* Hero Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-10">
         {/* Active to work badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -183,10 +183,10 @@ export default function HeroPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="flex flex-col items-center justify-center my-2"
+          className="flex flex-col items-center justify-center my-2 w-full"
         >
           <h1
-            className="font-black text-white text-[12vw] sm:text-[10vw] md:text-8xl  uppercase tracking-tighter"
+            className="font-bold text-white text-[13vw] sm:text-[11vw] md:text-8xl uppercase tracking-tighter"
             style={{ 
               fontFamily: "var(--font-mona)", 
               lineHeight: "0.95",
@@ -197,13 +197,13 @@ export default function HeroPage() {
             ADENT FALLAH
           </h1>
           <h1
-            className="font-black text-white text-[12vw] sm:text-[10vw] md:text-8xl  uppercase tracking-tighter"
+            className="font-bold text-white text-[13vw] sm:text-[11vw] md:text-8xl uppercase tracking-tighter"
             style={{ 
               fontFamily: "var(--font-mona)", 
               lineHeight: "0.95",
               transform: "scaleY(1.3)",
               display: "inline-block",
-              marginTop: "0.2em"
+              marginTop: "0.15em"
             }}
           >
             AMORISYAH
@@ -283,12 +283,12 @@ export default function HeroPage() {
         </motion.div>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        {/* <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="text-[0.6rem] text-white/40 uppercase tracking-[0.18em]">
             Scroll
           </span>
           <div className="w-px h-10 bg-gradient-to-b from-white/50 to-transparent animate-pulse" />
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Fade */}

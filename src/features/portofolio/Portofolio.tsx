@@ -694,7 +694,7 @@ export default function Portfolio() {
       </motion.div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto min-h-[60vh]">
+      <div className="max-w-5xl mx-auto min-h-[60vh]">
         <AnimatePresence mode="wait">
           {activeTab === "projects" && <Projects key="projects" />}
           {activeTab === "skills" && <Skills key="skills" />}

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import LastContributions from "./LastContributions";
 import TechMarquee from "./TechMarquee";
 
 export default function About() {
@@ -28,7 +27,7 @@ export default function About() {
         </motion.div>
 
         {/* ── Main Grid ── */}
-        <div className="max-w-5xl mx-auto flex flex-col-reverse md:grid md:grid-cols-[1fr_340px] gap-12 md:gap-16 items-start">
+        <div className="max-w-5xl mx-auto flex flex-col-reverse md:grid md:grid-cols-[1fr_340px] gap-12 md:gap-16 items-stretch">
           {/* ── LEFT: Description ── */}
           <div className="flex flex-col gap-10">
             {/* Bio */}
@@ -105,11 +104,11 @@ export default function About() {
 
           {/* ── RIGHT: Profile Card ── */}
           <motion.div
+            className="flex flex-col gap-6"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="flex flex-col gap-6 md:sticky md:top-28"
           >
             {/* Avatar */}
             <div className="relative">
@@ -140,11 +139,11 @@ export default function About() {
             </div>
 
             {/* Github Contributions */}
-            <div className="border border-white/8 bg-white/[0.02] rounded-sm p-5 flex flex-col gap-3">
+            <div className="border border-white/8 bg-white/[0.02] rounded-sm p-5 flex flex-col gap-3 flex-1">
               <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/30">
                 295 contributions in the last year
               </p>
-              <div className="w-full overflow-hidden rounded-sm">
+              <div className="w-full overflow-hidden rounded-sm flex-1 flex items-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="https://ghchart.rshah.org/22c55e/denfasyah"
@@ -153,7 +152,7 @@ export default function About() {
                   style={{ filter: "brightness(1.1) saturate(1.2)" }}
                 />
               </div>
-              <div className="flex items-center justify-between mt-1">
+              <div className="flex items-center justify-between mt-auto pt-2 border-t border-white/5">
                 <a
                   href="https://github.com/denfasyah"
                   target="_blank"
