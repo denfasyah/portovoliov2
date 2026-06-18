@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function HeroPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -94,9 +95,9 @@ export default function HeroPage() {
     `;
 
     function compileShader(type: number, src: string): WebGLShader {
-      const s = gl.createShader(type) as WebGLShader;
-      gl.shaderSource(s, src);
-      gl.compileShader(s);
+      const s = gl!.createShader(type) as WebGLShader;
+      gl!.shaderSource(s, src);
+      gl!.compileShader(s);
       return s;
     }
 
@@ -152,69 +153,81 @@ export default function HeroPage() {
     <div className="bg-black min-h-screen relative overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block" />
 
-      {/* Navbar */}
-      <nav className="fixed bg-black top-0 left-0 right-0 z-[100] flex items-center justify-between px-10 py-5">
-        <a
-          href="#"
-          className="font-extrabold text-[1.3rem] text-white tracking-tighter uppercase"
-        >
-          ADENT
-        </a>
-        <ul className="flex items-center gap-0 list-none">
-          {["Home", "ABOUT", "Projects", "Experience"].map((item, i) => (
-            <li key={item} className="flex items-center">
-              <a
-                href="#"
-                className="text-[0.78rem] font-medium text-white/85 hover:text-white uppercase tracking-[0.08em] transition-colors py-1"
-              >
-                {item}
-              </a>
-              {i < 3 && (
-                <span className="text-white/30 text-[0.85rem] px-[18px] select-none">
-                  /
-                </span>
-              )}
-            </li>
-          ))}
-        </ul>
-        <a
-          href="#contact"
-          className="text-[0.75rem] font-semibold text-white border border-white/70 px-[22px] py-[10px] rounded hover:bg-white hover:text-black transition-all uppercase tracking-[0.1em]"
-        >
-          Get in Touch
-        </a>
-      </nav>
-
       {/* Hero Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
         {/* Active to work badge */}
-        <div className="inline-flex items-center gap-2 mb-3 text-[0.78rem] text-white/75 tracking-[0.04em]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          className="inline-flex items-center gap-2 mb-3 text-[0.78rem] text-white/75 tracking-[0.04em]"
+        >
           <span className="w-[7px] h-[7px] bg-green-500 rounded-full relative">
             <span className="absolute inset-0 rounded-full bg-green-500 animate-ping" />
           </span>
           Active to work
-        </div>
+        </motion.div>
 
         {/* Role */}
-        <p className="mb-6 text-[0.8rem] font-semibold text-white/50 uppercase tracking-[0.22em]">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          className="mb-6 text-[0.8rem] font-semibold text-white/50 uppercase tracking-[0.22em]"
+        >
           Full Stack Developer
-        </p>
+        </motion.p>
 
         {/* Name */}
-        <h1 className="font-black text-7xl text-white leading-[0.95] uppercase tracking-tight">
-          Adent Fallah
-          <br />
-          Amorisyah
-        </h1>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          className="flex flex-col items-center justify-center my-2"
+        >
+          <h1
+            className="font-black text-white text-[12vw] sm:text-[10vw] md:text-8xl  uppercase tracking-tighter"
+            style={{ 
+              fontFamily: "var(--font-mona)", 
+              lineHeight: "0.95",
+              transform: "scaleY(1.3)",
+              display: "inline-block"
+            }}
+          >
+            ADENT FALLAH
+          </h1>
+          <h1
+            className="font-black text-white text-[12vw] sm:text-[10vw] md:text-8xl  uppercase tracking-tighter"
+            style={{ 
+              fontFamily: "var(--font-mona)", 
+              lineHeight: "0.95",
+              transform: "scaleY(1.3)",
+              display: "inline-block",
+              marginTop: "0.2em"
+            }}
+          >
+            AMORISYAH
+          </h1>
+        </motion.div>
 
         {/* Description */}
-        <p className="mt-7 max-w-md text-[clamp(0.9rem,1.8vw,1.05rem)] text-white/55 tracking-[0.02em] leading-relaxed">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+          className="mt-7 max-w-md text-[clamp(0.9rem,1.8vw,1.05rem)] text-white/55 tracking-[0.02em] leading-relaxed"
+        >
           Crafting performant, pixel-perfect digital experiences — from backend
           architecture to polished user interfaces.
-        </p>
+        </motion.p>
 
         {/* CTA Buttons — styled like the reference image */}
-        <div className="mt-9 flex items-center gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+          className="mt-9 flex items-center gap-4"
+        >
           <a
             href="#contact"
             className="group relative flex items-center gap-3 border border-white/40 px-7 py-4 text-[0.72rem] font-semibold text-white uppercase tracking-[0.14em] transition-all duration-200 hover:border-white/80 hover:bg-white/5"
@@ -267,7 +280,7 @@ export default function HeroPage() {
               />
             </svg>
           </a>
-        </div>
+        </motion.div>
 
         {/* Scroll hint */}
         <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
@@ -277,6 +290,9 @@ export default function HeroPage() {
           <div className="w-px h-10 bg-gradient-to-b from-white/50 to-transparent animate-pulse" />
         </div>
       </div>
+
+      {/* Bottom Fade */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent pointer-events-none z-20" />
     </div>
   );
 }

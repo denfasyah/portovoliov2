@@ -81,7 +81,7 @@ export default function Footer() {
               <span className="text-white/30">can create together?</span>
             </h2>
             <p className="text-white/40 text-sm max-w-sm">
-              Let's bring something extraordinary to life! I'm available for new collaborations.
+              Let&apos;s bring something extraordinary to life! I&apos;m available for new collaborations.
             </p>
           </div>
 

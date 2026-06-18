@@ -1,17 +1,15 @@
 import Navbar from "@/components/layouts/Navbar";
-import Background from "@/components/layouts/Background";
-import Hero from "@/components/sections/hero/Hero";
-import About from "@/components/sections/about/About";
-import Portfolio from "@/components/sections/portofolio/Portofolio";
-import Experience from "@/components/sections/experience/Experience";
-import GetInTouch from "@/components/sections/getInTouch/GetInTouch";
+import Hero from "@/features/hero/Hero";
+import Portfolio from "@/features/portofolio/Portofolio";
+import Experience from "@/features/experience/Experience";
+import GetInTouch from "@/features/getInTouch/GetInTouch";
 import Footer from "@/components/layouts/Footer";
+import About from "@/features/about/About";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
-      {/* <Background />
-      <Navbar /> */}
+      <Navbar />
       <Hero />
       <About />
       <Portfolio />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import "@fontsource-variable/mona-sans";
 import "./globals.css";
 
 const syne = Syne({

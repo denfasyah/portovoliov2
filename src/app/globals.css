@@ -53,6 +53,7 @@
   --font-sans: "Plus Jakarta Sans Variable", system-ui, sans-serif;
   --font-mono: var(--font-mono), monospace;
   --font-heading: "Syne Variable", system-ui, sans-serif;
+  --font-mona: "Mona Sans Variable", sans-serif;
 
   /* ── Brand color tokens ── */
   --color-brand-blue: #0047FF;
