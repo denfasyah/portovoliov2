@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { Eye } from "lucide-react";
 import { PROJECTS } from "@/data/projects";
 import { SKILL_ROWS } from "@/data/skills";
 import { CERTS } from "@/data/certificates";
@@ -175,6 +176,15 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </div>
 
           <div className="flex gap-2.5 pt-1">
+             {/* <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 border border-white/12 hover:border-white/35 hover:bg-white/5 py-3 text-[0.67rem] font-semibold uppercase tracking-[0.15em] text-white/50 hover:text-white transition-all"
+            >
+             <Eye className="w-3 h-3" />
+              View Demo
+            </a> */}
             <a
               href={project.link}
               target="_blank"
@@ -247,11 +257,13 @@ function Projects() {
                   src={p.img}
                   alt={p.title}
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{
-                    filter: isHovered ? "grayscale(0%) brightness(0.65)" : "grayscale(100%) brightness(0.4)",
-                    transform: isHovered ? "scale(1.06)" : "scale(1)",
-                    transition: "filter 0.6s ease, transform 0.6s ease",
-                  }}
+                 style={{
+    filter: isHovered 
+      ? "grayscale(0%) brightness(0.85)" 
+      : "grayscale(0%) brightness(0.6)",
+    transform: isHovered ? "scale(1.05)" : "scale(1)",
+    transition: "filter 0.6s ease, transform 0.6s ease",
+  }}
                 />
 
                 {/* Vignette */}
@@ -531,11 +543,11 @@ function CertificateCard({ c, i }: { c: typeof CERTS[0]; i: number }) {
             src={c.img}
             alt={c.title}
             className="w-full h-full object-cover"
-            style={{
-              filter: isHovered ? "grayscale(20%) brightness(0.5)" : "grayscale(80%) brightness(0.35)",
-              transform: isHovered ? "scale(1.1)" : "scale(1)",
-              transition: "filter 0.55s ease, transform 0.55s ease",
-            }}
+            // style={{
+            //   filter: isHovered ? "grayscale(20%) brightness(0.5)" : "grayscale(20%) brightness(0.35)",
+            //   transform: isHovered ? "scale(1.1)" : "scale(1)",
+            //   transition: "filter 0.55s ease, transform 0.55s ease",
+            // }}
           />
 
           {/* Color tint overlay */}
@@ -644,7 +656,7 @@ export default function Portfolio() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="font-black text-6xl md:text-7xl text-center uppercase tracking-[-0.03em] leading-none mb-16 select-none"
+        className="font-black text-6xl md:text-7xl text-center uppercase tracking-[-0.03em] leading-none mb-16 select-none "
       >
         <span className="text-white/30">PORT</span>
         <span className="text-white">FOLIO</span>
@@ -660,7 +672,7 @@ export default function Portfolio() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex justify-center mb-14"
+        className="flex justify-center mb-10 border-b border-white/10 pb-8"
       >
         <div
           className="inline-flex p-1 gap-0.5 relative"

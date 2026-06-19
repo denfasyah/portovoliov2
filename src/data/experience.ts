@@ -3,9 +3,9 @@ export const WORK_EXPERIENCE = [
     id: 1,
     role: "Web Developer & UI/UX Intern",
     company: "PT Vinix7",
-    period: "2024 - 2025",
+    period: "2025 agust - 2025 dec",
     desc: "Collaborated in designing and developing responsive web applications. Translated complex Figma prototypes into clean, functional, and performant code. Conducted user research and iterative design to enhance overall platform usability.",
-    tech: ["React", "Next.js", "Tailwind CSS", "Figma"],
+    tech: ["JavaScript","HTML", "CSS", "JavaScript", "Figma"],
   },
 ];
 
@@ -16,6 +16,6 @@ export const EDUCATION = [
     institution: "Universitas Bina Sarana Informatika",
     period: "2022 - Present",
     desc: "Focused on software architecture, scalable system design, and advanced web development. Actively involved in project-based learning and agile software development life cycles.",
-    tech: ["Software Architecture", "Agile", "Web Dev"],
+    tech: ["Software Architecture", "Algorithms", "Web Dev"],
   },
 ];

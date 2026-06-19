@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Syne, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "@fontsource-variable/mona-sans";
 import "./globals.css";
+import Preloader from "@/components/layouts/Preloader";
 
 const syne = Syne({
   variable: "--font-heading",
@@ -25,7 +26,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Adent Fallah Amorisyah — Full Stack Developer",
-  description: "Premium creative portfolio. Full Stack Developer specializing in Next.js, Three.js, and interactive web experiences.",
+  description:
+    "Premium creative portfolio. Full Stack Developer specializing in Next.js, Three.js, and interactive web experiences.",
 };
 
 export default function RootLayout({
@@ -39,7 +41,9 @@ export default function RootLayout({
       className={`${syne.variable} ${plusJakartaSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col"> {children}</body>
+      <body className="min-h-full flex flex-col bg-black">
+        <Preloader>{children}</Preloader>
+      </body>
     </html>
   );
 }

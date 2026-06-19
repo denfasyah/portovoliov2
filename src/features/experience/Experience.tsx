@@ -44,7 +44,7 @@ export default function ExperiencePage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="font-black text-6xl md:text-7xl text-center uppercase tracking-[-0.03em] leading-none mb-16 select-none"
+        className="font-black text-6xl md:text-7xl text-center uppercase tracking-[-0.03em] leading-none mb-16 select-none "
       >
         <span className="text-white/30">EXPE</span>
         <span className="text-white">RIENCE</span>
@@ -60,7 +60,7 @@ export default function ExperiencePage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex justify-center mb-20"
+        className="flex justify-center mb-10 border-b border-white/10 pb-8"
       >
         <div className="inline-flex p-1 gap-0.5 border border-white/10 bg-white/[0.02]">
           {(["work", "education"] as Tab[]).map((tab) => (

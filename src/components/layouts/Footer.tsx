@@ -86,7 +86,7 @@ export default function Footer() {
           </div>
 
           <a
-            href="#contact"
+            href="https://wa.me/6285173190648"
             className="group relative flex items-center gap-3 border border-white/20 px-10 py-6 text-[0.7rem] font-bold uppercase tracking-[0.3em] transition-all hover:bg-white hover:text-black"
           >
             Book a Free Call
@@ -101,10 +101,10 @@ export default function Footer() {
           </div>
           
           <div className="flex gap-10 text-[0.65rem] uppercase tracking-[0.25em] text-white/40">
-            <a href="#" className="hover:text-white transition-colors">Github</a>
-            <a href="#" className="hover:text-white transition-colors">Linkedin</a>
-            <a href="#" className="hover:text-white transition-colors">Whatsapp</a>
-            <a href="#" className="hover:text-white transition-colors">Tiktok</a>
+            <a href="https://github.com/denfasyah" className="hover:text-white transition-colors">Github</a>
+            <a href="https://www.linkedin.com/in/denfasyah/" className="hover:text-white transition-colors">Linkedin</a>
+            <a href="https://wa.me/6285173190648" className="hover:text-white transition-colors">Whatsapp</a>
+            <a href="https://www.tiktok.com/@adentni" className="hover:text-white transition-colors">Tiktok</a>
           </div>
 
           <div className="text-[0.65rem] text-white/20 uppercase tracking-[0.1em]">

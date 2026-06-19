@@ -14,7 +14,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-10 border-b border-white/10 pb-8"
         >
           <h1 className="font-black text-6xl md:text-7xl uppercase tracking-[-0.03em] leading-none select-none">
             <span className="text-white/30">ABOUT</span>
@@ -37,16 +37,16 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
-              <span className="block text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/30 mb-4">
+              <span className="block text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/50 mb-4">
                 Bio
               </span>
-              <p className="text-white/70 text-[1.05rem] leading-[1.85] mb-4">
+              <p className="text-white/80 text-[1.05rem] leading-[1.85] mb-4">
                 I&apos;m a Full Stack Developer, passionate about
                 crafting digital experiences that marry performance with aesthetic
-                precision. Currently a Software Engineering student at xxxxxx University — 22 years old and fully committed to the
+                precision. Currently a Software Engineering student at Bina Sarana Informatika University — 22 years old and fully committed to the
                 craft.
               </p>
-              <p className="text-white/50 text-[0.95rem] leading-[1.8]">
+              <p className="text-white/60 text-[0.95rem] leading-[1.8]">
                 My approach centers on clean architecture, thoughtful API design,
                 and high-impact visual engineering. I follow the latest trends in
                 tech and believe that the best products are built at the
@@ -86,9 +86,9 @@ export default function About() {
               ].map(({ label, value }) => (
                 <div
                   key={label}
-                  className="border border-white/8 bg-white/[0.02] p-5 rounded-sm hover:border-white/20 transition-colors"
+                  className="border border-white/8 bg-white/[0.02] p-5 rounded-sm hover:border-white/50 transition-colors"
                 >
-                  <h3 className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/30 mb-2">
+                  <h3 className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mb-2">
                     {label}
                   </h3>
                   <p className="text-white/60 text-[0.85rem] leading-relaxed">
@@ -111,23 +111,27 @@ export default function About() {
           >
             {/* Avatar */}
             <div className="relative">
-              <div
-                className="w-full aspect-square rounded-sm overflow-hidden border border-white/10 relative group"
-                style={{ maxWidth: 340 }}
-              >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
-                <Image
-                  src="https://avatars.githubusercontent.com/u/124890555?v=4"
-                  alt="Adent Fallah Amorisyah"
-                  width={340}
-                  height={340}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  priority
-                  unoptimized
-                />
-              </div>
+             <div
+  className="w-full aspect-square md:ml-0 ml-12 rounded-sm overflow-hidden border border-white/10 relative group"
+  style={{ maxWidth: 340 }}
+>
+  {/* Mengurangi tingkat kegelapan overlay dari 40% ke 20% agar lebih subtle */}
+  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+  
+  <Image
+    src="https://avatars.githubusercontent.com/u/124890555?v=4"
+    alt="Adent Fallah Amorisyah"
+    width={340}
+    height={340}
+    // Menggunakan grayscale-70 agar tidak terlalu kontras (hitam putih tajam)
+    // Transisi duration-700 membuatnya terasa lebih lambat dan elegan
+    className="w-full h-full object-cover  group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+    priority
+    unoptimized
+  />
+</div>
               {/* Available badge */}
-              <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-black/70 backdrop-blur-sm border border-white/10 rounded-sm px-3 py-1.5 z-20">
+              <div className="absolute top-3 md:left-3 left-15 inline-flex items-center gap-1.5 bg-black/70 backdrop-blur-sm border border-white/10 rounded-sm px-3 py-1.5 z-20">
                 <span className="w-[6px] h-[6px] rounded-full bg-green-500 relative">
                   <span className="absolute inset-0 rounded-full bg-green-500 animate-ping" />
                 </span>

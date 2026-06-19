@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SOCIAL_LINKS = [
@@ -15,7 +15,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/adent-fallah",
+    url: "https://www.linkedin.com/in/denfasyah/",
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -24,7 +24,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "WhatsApp",
-    url: "https://wa.me/628123456789", // Replace with real number
+    url: "https://wa.me/6285173190648",
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -33,18 +33,51 @@ const SOCIAL_LINKS = [
   },
 ];
 
+type Status = "idle" | "sending" | "success";
+
+const EMPTY_FORM = { name: "", email: "", message: "" };
+
 export default function GetInTouch() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [status, setStatus] = useState<Status>("idle");
+  const [formData, setFormData] = useState(EMPTY_FORM);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      return;
+    }
     setStatus("sending");
-    // Simulasi pengiriman form
+    // Simulasi pengiriman form — ganti dengan call API/email service kamu di sini.
     setTimeout(() => setStatus("success"), 1500);
   };
 
+  const handleCloseModal = () => {
+    setStatus("idle");
+    setFormData(EMPTY_FORM);
+  };
+
+  // Tutup modal dengan tombol Esc.
+  useEffect(() => {
+    if (status !== "success") return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleCloseModal();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [status]);
+
   return (
-    <section id="contact" className="bg-black min-h-screen px-6 py-28 md:px-20 text-white flex flex-col items-center justify-center overflow-hidden">
+    <section
+      id="contact"
+      className="bg-black min-h-screen px-6 py-28 md:px-20 text-white flex flex-col items-center justify-center overflow-hidden"
+    >
       <div className="max-w-5xl w-full">
         {/* Brutalist Bracket Heading */}
         <motion.div
@@ -56,7 +89,7 @@ export default function GetInTouch() {
         >
           <h1 className="font-black text-6xl md:text-8xl uppercase tracking-tighter leading-none flex items-center gap-4">
             <span className="text-white/20 font-light">[</span>
-            <span>CONTACT</span>
+            <span>Get in Touch</span>
             <span className="text-white/20 font-light">]</span>
           </h1>
           <p className="text-white/40 text-[0.8rem] uppercase tracking-[0.2em] font-semibold max-w-[200px] text-right hidden md:block">
@@ -121,8 +154,11 @@ export default function GetInTouch() {
           >
             <div className="space-y-2">
               <label className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/30">Name</label>
-              <input 
+              <input
                 required
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 disabled={status !== "idle"}
                 className="w-full bg-[#0a0a0a] border border-white/10 p-4 outline-none focus:border-white/50 transition-all text-sm placeholder:text-white/10 disabled:opacity-50"
                 placeholder="Enter your name"
@@ -131,9 +167,12 @@ export default function GetInTouch() {
 
             <div className="space-y-2">
               <label className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/30">Email</label>
-              <input 
+              <input
                 required
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 disabled={status !== "idle"}
                 className="w-full bg-[#0a0a0a] border border-white/10 p-4 outline-none focus:border-white/50 transition-all text-sm placeholder:text-white/10 disabled:opacity-50"
                 placeholder="Enter your email"
@@ -142,16 +181,19 @@ export default function GetInTouch() {
 
             <div className="space-y-2">
               <label className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/30">Message</label>
-              <textarea 
+              <textarea
                 required
                 rows={4}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 disabled={status !== "idle"}
                 className="w-full bg-[#0a0a0a] border border-white/10 p-4 outline-none focus:border-white/50 transition-all text-sm placeholder:text-white/10 resize-none disabled:opacity-50"
                 placeholder="How can I help you?"
               />
             </div>
 
-            <button 
+            <button
               type="submit"
               disabled={status !== "idle"}
               className="w-full relative overflow-hidden bg-white text-black py-4 font-black uppercase tracking-[0.2em] text-xs hover:bg-white/90 transition-all active:scale-[0.98] disabled:opacity-50 group"
@@ -165,13 +207,71 @@ export default function GetInTouch() {
                   transition={{ duration: 0.2 }}
                   className="block"
                 >
-                  {status === "idle" ? "Send Message" : status === "sending" ? "Sending..." : "Message Sent ✓"}
+                  {status === "sending" ? "Sending..." : "Send Message"}
                 </motion.span>
               </AnimatePresence>
             </button>
           </motion.form>
         </div>
       </div>
+
+      {/* Success modal */}
+      <AnimatePresence>
+        {status === "success" && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              onClick={handleCloseModal}
+              aria-hidden="true"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative w-full max-w-sm bg-black border border-white/15 rounded-sm p-10 text-center"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="contact-success-title"
+            >
+              <div className="mx-auto mb-6 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </div>
+
+              <h2 id="contact-success-title" className="font-black text-2xl uppercase tracking-tight mb-3">
+                Message Sent
+              </h2>
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                Thanks for reaching out. I&apos;ll get back to you as soon as possible.
+              </p>
+
+              <button
+                onClick={handleCloseModal}
+                autoFocus
+                className="w-full bg-white text-black py-3 font-black uppercase tracking-[0.2em] text-xs hover:bg-white/90 transition-all active:scale-[0.98]"
+              >
+                Done
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

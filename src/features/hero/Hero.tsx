@@ -243,7 +243,7 @@ export default function HeroPage() {
           className="mt-9 flex items-center gap-4"
         >
           <a
-            href="#contact"
+            href="#portfolio"
             className="group relative flex items-center gap-3 border border-white/40 px-7 py-4 text-[0.72rem] font-semibold text-white uppercase tracking-[0.14em] transition-all duration-200 hover:border-white/80 hover:bg-white/5"
             style={{ clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))" }}
           >
@@ -270,7 +270,7 @@ export default function HeroPage() {
           </a>
 
           <a
-            href="#pricing"
+            href="#contact"
             className="group relative flex items-center gap-3 border border-white/40 px-7 py-4 text-[0.72rem] font-semibold text-white uppercase tracking-[0.14em] transition-all duration-200 hover:border-white/80 hover:bg-white/5"
             style={{ clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))" }}
           >

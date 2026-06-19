@@ -12,7 +12,6 @@ const TECH_STACK = [
   { name: "MongoDB",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
   { name: "MySQL",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
   { name: "Tailwind CSS",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-  { name: "Figma",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
   { name: "Git",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "Docker",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
 ];
@@ -25,15 +24,17 @@ function Pill({ tech, keyPrefix, index }: { tech: typeof TECH_STACK[0]; keyPrefi
   return (
     <div
       key={`${keyPrefix}-${index}`}
-      className="flex-shrink-0 flex items-center gap-2.5 border border-white/10 bg-white/[0.03] px-5 py-2.5 rounded-sm hover:border-white/30 transition-colors cursor-default"
+      // Tambahkan kelas 'grayscale' dan 'grayscale-0' saat group-hover
+      className="group flex-shrink-0 flex items-center gap-2.5 border border-white/10 bg-white/[0.03] px-5 py-2.5 rounded-sm 
+                 hover:border-white/30 hover:bg-white/[0.06] transition-all duration-500 cursor-default
+                 grayscale hover:grayscale-0"
     >
       <img
         src={tech.icon}
         alt={tech.name}
-        className="w-4 h-4 object-contain"
-        style={{ filter: "brightness(0) invert(1) opacity(0.6)" }}
+        className="w-4 h-4 object-contain transition-all duration-500 opacity-60 group-hover:opacity-100"
       />
-      <span className="text-[0.75rem] font-semibold tracking-wide text-white/60 whitespace-nowrap">
+      <span className="text-[0.75rem] font-semibold tracking-wide text-white/60 group-hover:text-white transition-colors duration-500 whitespace-nowrap">
         {tech.name}
       </span>
     </div>
